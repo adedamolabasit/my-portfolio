@@ -8,9 +8,9 @@ const projects = [
     imageUrl: "https://via.placeholder.com/600x400?text=BlockOps Network",
     projectUrl: "https://blockops.network/",
     details: {
-      role: "As the lead developer, my responsibilities included designing and implementing the automated provisioning system for blockchain nodes. I collaborated with the team to define requirements and ensure seamless integration with existing infrastructure sioning system for blockchain nodes. I collaborated with the team to define requirements and ensure seamless integration with existing infrastructure..",
+      role: "As the lead developer, my responsibilities included designing and implementing the automated provisioning system for blockchain nodes. I collaborated with the team to define requirements and ensure seamless integration with existing infrastructure sioning system for blockchain nodes. I collaborated with the team to define requirements and ensure seamless integration with existing infrastructure.",
       workedOn:
-        "I leveraged Docker containers and Kubernetes orchestration to streamline the deployment process of blockchain nodes. Additionally, I developed custom scripts using Python to automate configuration and provisioning tasks, reducing manual intervention by 80%..",
+        "I leveraged Docker containers and Kubernetes orchestration to streamline the deployment process of blockchain nodes. Additionally, I developed custom scripts using Python to automate configuration and provisioning tasks, reducing manual intervention by 80%.",
       achievements:
         "By implementing the automated provisioning system, we reduced node deployment time from hours to minutes, resulting in a 60% increase in operational efficiency. Our solution also decreased infrastructure costs by optimizing resource utilization.",
       // Add more details as needed
@@ -130,7 +130,7 @@ const Portfolio = () => {
   }
 
   return (
-    <section id="portfolio" className="py-12">
+    <section id="portfolio" className="py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8">Portfolio</h2>
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {currentProjects.map((project, index) => (
@@ -182,11 +182,11 @@ const Portfolio = () => {
       {/* Modal */}
       {selectedProject && (
         <div
-          className={`fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center ${
+          className={`fixed inset-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center ${
             showModal ? "" : "hidden"
           }`}
         >
-          <div className="bg-white p-6 rounded-lg">
+          <div className="bg-white p-6 rounded-lg mx-4 max-w-lg w-full">
             <h2 className="text-2xl font-bold mb-4">{selectedProject.title}</h2>
             <div className="mb-4">
               <button
@@ -219,21 +219,15 @@ const Portfolio = () => {
               </button>
               {/* Add more toggle buttons as needed */}
             </div>
-            <div className="w-96 h-40 overflow-y-scroll">
+            <div className="max-h-60 overflow-y-auto">
               {activeToggle === "role" && (
-                <p className="text-gray-700  min-w-8">
-                  {selectedProject.details.role}
-                </p>
+                <p className="text-gray-700">{selectedProject.details.role}</p>
               )}
               {activeToggle === "workedOn" && (
-                <p className="text-gray-700  max-w-96">
-                  {selectedProject.details.workedOn}
-                </p>
+                <p className="text-gray-700">{selectedProject.details.workedOn}</p>
               )}
               {activeToggle === "achievements" && (
-                <p className="text-gray-700  max-w-96">
-                  {selectedProject.details.achievements}
-                </p>
+                <p className="text-gray-700">{selectedProject.details.achievements}</p>
               )}
               {/* Add more toggles for additional details */}
             </div>

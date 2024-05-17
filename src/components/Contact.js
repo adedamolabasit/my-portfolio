@@ -4,10 +4,10 @@ import { faGithub, faLinkedin, faTwitter, faDiscord } from '@fortawesome/free-br
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-12 bg-gray-100 text-center">
+    <section id="contact" className="py-12 px-4 bg-gray-100 text-center">
       <h2 className="text-3xl font-bold mb-4">Contact Me</h2>
       <p className="text-gray-700 mb-6">
-        Feel free to reach out to me at <a href="mailto:adedamolabasit09@gmail.com" className="text-blue-500 hover:underline">adedamolabasit@gmail.com</a> or connect with me on social media:
+        Feel free to reach out to me at <a href="mailto:adedamolabasit09@gmail.com" className="text-blue-500 hover:underline">adedamolabasit09@gmail.com</a> or connect with me on social media:
       </p>
       <div className="flex justify-center space-x-6">
         <a href="https://github.com/your-github" target="_blank" rel="noopener noreferrer" className="text-gray-700 hover:text-gray-900">
