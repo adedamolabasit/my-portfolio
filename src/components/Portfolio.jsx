@@ -14,7 +14,7 @@ const Portfolio = () => {
   const openModal = (project) => {
     setSelectedProject(project);
     setShowModal(true);
-    setActiveToggle("role"); // Set the default active toggle
+    setActiveToggle("about"); // Set the default active toggle
   };
 
   const closeModal = () => {
@@ -55,16 +55,16 @@ const Portfolio = () => {
               />
               <div className="p-4">
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+                <p className="text-gray-700 mb-4 h-10">{project.description}</p>
                 <div className="flex justify-between items-center">
                   <button
                     onClick={() => openModal(project)}
                     className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-600 transition duration-300"
                   >
-                    Explore Role
+                    About Project
                   </button>
                   <p className="text-gray-700 mt-2 cursor-pointer hover:underline">
-                    <a href={project.detailsUrl}>View project</a>
+                    <a href={project.projectUrl} target="_blank" rel="noopener noreferrer" >View project</a>
                   </p>
                 </div>
               </div>
@@ -102,48 +102,54 @@ const Portfolio = () => {
             <h2 className="text-2xl font-bold mb-4">{selectedProject.title}</h2>
             <div className="mb-4">
               <button
-                className={`mr-4 text-sm font-semibold ${
-                  activeToggle === "role" ? "text-black-800" : "text-gray-400"
+                className={`mr-4 text-sm font-bold ${
+                  activeToggle === "about" ? "text-black-800" : "text-gray-400"
                 } focus:outline-none`}
-                onClick={() => toggleActive("role")}
+                onClick={() => toggleActive("about")}
               >
-                My Role
+                About
               </button>
               <button
-                className={`mr-4 text-sm font-semibold ${
-                  activeToggle === "workedOn"
+                className={`mr-4 text-sm font-bold ${
+                  activeToggle === "implementation"
                     ? "text-black-800"
                     : "text-gray-400"
                 } focus:outline-none`}
-                onClick={() => toggleActive("workedOn")}
+                onClick={() => toggleActive("implementation")}
               >
-                Technical Contribution
+                Implementation
               </button>
               <button
-                className={`mr-4 text-sm font-semibold ${
-                  activeToggle === "achievements"
-                    ? "text-black-800"
-                    : "text-gray-400"
+                className={`mr-4 text-sm font-bold ${
+                  activeToggle === "tools" ? "text-black-800" : "text-gray-400"
                 } focus:outline-none`}
-                onClick={() => toggleActive("achievements")}
+                onClick={() => toggleActive("tools")}
               >
-                Achievements
+                Tools
               </button>
               {/* Add more toggle buttons as needed */}
             </div>
             <div className="max-h-60 overflow-y-auto">
-              {activeToggle === "role" && (
-                <p className="text-gray-700">{selectedProject.details.role}</p>
+              {activeToggle === "about" && (
+                <p className="text-gray-700">{selectedProject.details.about}</p>
               )}
-              {activeToggle === "workedOn" && (
-                <p className="text-gray-700">{selectedProject.details.workedOn}</p>
+              {activeToggle === "implementation" && (
+                <p className="text-gray-700">
+                  {selectedProject.details.implementation}
+                </p>
               )}
-              {activeToggle === "achievements" && (
-                <p className="text-gray-700">{selectedProject.details.achievements}</p>
+              {activeToggle === "tools" && (
+                <div className="text-gray-700">
+                  {selectedProject.details.tools.map((tool, index) => (
+                    <div key={index} className="mb-4">
+                      <h4 className="font-bold">{tool.name}</h4>
+                      <p>{tool.description}</p>
+                    </div>
+                  ))}
+                </div>
               )}
               {/* Add more toggles for additional details */}
             </div>
-            
 
             <button
               onClick={closeModal}
